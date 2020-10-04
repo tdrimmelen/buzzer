@@ -10,7 +10,7 @@ class Clockbuzzer:
 	def __init__(self):
 
 		self.buzzer = buzzercontroller.buzzercontroller()
-		self.hasBuzzed = False
+		self.hasBuzzed = True
 	
 	def playWhenNeeded(self, time):
 
@@ -28,7 +28,7 @@ class Clockbuzzer:
 		while True:
 			try:
 				url='http://192.168.2.128/shotclock/test/time'
-				response = requests.get(url)
+				response = requests.get(url, timeout = 5)
 				if (response.status_code == 200):
 					data = response.json()
 					if (data['status'] == 'OK'):
