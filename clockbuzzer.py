@@ -36,6 +36,7 @@ class Clockbuzzer:
 				response = requests.get(self.clockurl, timeout = 5)
 				if (response.status_code == 200):
 					data = response.json()
+					logging.debug('Receiving json: ' + response.json())
 					if (data['status'] == 'OK'):
 
 						# Shotclock
