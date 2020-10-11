@@ -53,6 +53,7 @@ class Clockbuzzer:
 						if (data.get('minute')  != None):
 							second = data['minute']*60 + second
 
+						logging.debug('Time in seconds: ' + str(second))
 						self.playWhenNeeded(second)
 					else:
 						message = data['ErrorMessage']
