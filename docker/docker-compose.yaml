@@ -9,7 +9,7 @@ services:
     devices:
       - "/dev/snd"
     environment: 
-      - "BUZZER_CLOCKURL=http://192.168.2.128/shotclock/test/time"
+      - "BUZZER_CLOCKURL=http://localhost/shotclock/time"
       - "BUZZER_AUDIOFILE=buzzer/assets/buzzer.wav"
       - "LOGLEVEL=INFO"
 
