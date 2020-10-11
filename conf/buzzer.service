@@ -1,0 +1,18 @@
+[Unit]
+Description=Buzzer
+Requires=docker.service
+After=docker.service
+
+[Service]
+WorkingDirectory=/home/pi/buzzer/docker
+ExecStart=/usr/local/bin/docker-compose up
+ExecStop=/usr/local/bin/docker-compose down
+User=pi
+Group=pi
+TimeoutStartSec=0
+Restart=on-failure
+StartLimitIntervalSec=60
+StartLimitBurst=3
+
+[Install]
+WantedBy=multi-user.target

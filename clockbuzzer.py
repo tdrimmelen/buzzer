@@ -4,10 +4,15 @@ import traceback
 import requests, requests.exceptions
 import json
 import buzzercontroller
+import os
 
 class Clockbuzzer:
 
 	def __init__(self):
+
+		self.clockurl = os.environ['BUZZER_CLOCKURL']
+
+		logging.info('Clock URL = ' + self.clockurl)
 
 		self.buzzer = buzzercontroller.buzzercontroller()
 		self.hasBuzzed = True
@@ -27,8 +32,8 @@ class Clockbuzzer:
 
 		while True:
 			try:
-				url='http://192.168.2.128/shotclock/test/time'
-				response = requests.get(url, timeout = 5)
+				url=
+				response = requests.get(self.clockurl, timeout = 5)
 				if (response.status_code == 200):
 					data = response.json()
 					if (data['status'] == 'OK'):
