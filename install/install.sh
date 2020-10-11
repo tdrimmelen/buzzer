@@ -1,5 +1,12 @@
 #/bin/bash
 
+#Run as normal user
+if [ " ${USER} = "root" ] ; then
+
+    echo "Run script as a normal user (should have sudo rights)"
+    exit 1
+    
+fi
 
 module='buzzer'
 sw=${module}
