@@ -1,7 +1,7 @@
 FROM debian:latest
 
 COPY . /buzzer
-COPY ./conf/asound.conf /etc
+#COPY ./conf/asound.conf /etc
 
 RUN apt update
 RUN apt install -y git python3 python3-pip libasound2-dev alsa-utils
