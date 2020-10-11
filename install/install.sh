@@ -18,7 +18,6 @@ git config --global user.name "tdrimmelen"
 git clone https://github.com/tdrimmelen/buzzer.git
 
 cd buzzer/docker/
-docker login
 docker-compose pull
 
 cd ${HOME}
