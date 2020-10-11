@@ -11,10 +11,11 @@ class Clockbuzzer:
 	def __init__(self):
 
 		self.clockurl = os.environ['BUZZER_CLOCKURL']
+		audiofile = os.environ['BUZZER_AUDIOFILE']
 
 		logging.info('Clock URL = ' + self.clockurl)
 
-		self.buzzer = buzzercontroller.buzzercontroller()
+		self.buzzer = buzzercontroller.buzzercontroller(audiofile)
 		self.hasBuzzed = True
 	
 	def playWhenNeeded(self, time):
@@ -32,7 +33,6 @@ class Clockbuzzer:
 
 		while True:
 			try:
-				url=
 				response = requests.get(self.clockurl, timeout = 5)
 				if (response.status_code == 200):
 					data = response.json()

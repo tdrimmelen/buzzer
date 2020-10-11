@@ -8,10 +8,10 @@ import simpleaudio as sa
 
 class buzzercontroller:
 
-    def __init__(self):
+    def __init__(self, audiofile):
         logging.debug(self.__class__.__name__ + ": Making shotclock buzzer object")
 
-        self.wave_read = wave.open('assets/buzzer.wav')
+        self.wave_read = wave.open(audiofile)
         self.audio_data = self.wave_read.readframes(self.wave_read.getnframes())
 
 

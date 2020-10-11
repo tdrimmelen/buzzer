@@ -1,16 +1,15 @@
 version: '3'
 services:
-  master:
+  buzzer:
     build: 
       dockerfile: ./docker//Dockerfile
       context: ..
     image: tdrimmelen/buzzer:latest
-    ports:
-      - "2398:2398/udp"
     network_mode: host
     devices:
       - "/dev/snd"
     environment: 
       - "BUZZER_CLOCKURL=http://192.168.2.128/shotclock/test/time"
+      - "BUZZER_AUDIOFILE=buzzer/assets/buzzer.wav"
 
 
