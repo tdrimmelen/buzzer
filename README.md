@@ -16,6 +16,8 @@ wget https://raw.githubusercontent.com/tdrimmelen/buzzer/master/install/prepare.
 source ./prepare.sh server
 ```
 
+The Pi is automatically rebooted when the installation completes.
+
 ### Buzzer
 
 Install the buzzer software. Run the following commands as the `pi` user.
@@ -23,8 +25,10 @@ Install the buzzer software. Run the following commands as the `pi` user.
 ``` bash
 wget https://raw.githubusercontent.com/tdrimmelen/buzzer/master/install/install.sh`
 
-source ./install.sh`
+source ./install.sh
 ```
+
+The Pi is automatically rebooted when the installation completes.
 
 ## Configure
 
@@ -42,7 +46,7 @@ sudo systemctl restart buzzer
 
 ### scoreboards
 
-Open `buzzer/docker/docker-compose.yaml` with a text editor (nano, vim)
+Open `~/buzzer/docker/docker-compose.yaml` with a text editor (nano, vim)
 
 Replace the line:
 
@@ -58,7 +62,7 @@ by:
 
 ### Run on a different Pi
 
-Open `buzzer/docker/docker-compose.yaml` with a text editor (nano, vim)
+Open `~/buzzer/docker/docker-compose.yaml` with a text editor (nano, vim)
 
 Replace the line:
 
@@ -75,7 +79,7 @@ by:
 
 ### Test interface
 
-Open `buzzer/docker/docker-compose.yaml` with a text editor (nano, vim)
+Open `~/buzzer/docker/docker-compose.yaml` with a text editor (nano, vim)
 
 Replace the line:
 
@@ -97,12 +101,19 @@ by:
 Output can be listed with:
 
 ``` bash
-sudo journalctl
+cd ~\buzzer\docker
+docker-compose logs
+```
+
+### Check status service
+
+``` bash
+sudo systemctl status buzzer
 ```
 
 ### Set logging level
 
-Open `buzzer/docker/docker-compose.yaml` with a text editor (nano, vim)
+Open `~/buzzer/docker/docker-compose.yaml` with a text editor (nano, vim)
 
 Edit the line:
 
