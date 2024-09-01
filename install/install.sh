@@ -18,7 +18,7 @@ git config --global user.name "tdrimmelen"
 git clone https://github.com/tdrimmelen/buzzer.git
 
 cd buzzer/docker/
-docker-compose pull
+docker compose pull
 
 cd ${HOME}
 sudo cp ${module}/conf/${sw}.service /etc/systemd/system/

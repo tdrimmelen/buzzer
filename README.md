@@ -102,7 +102,7 @@ Output can be listed with:
 
 ``` bash
 cd ~\buzzer\docker
-docker-compose logs
+docker compose logs
 ```
 
 ### Check status service
