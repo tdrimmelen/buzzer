@@ -23,7 +23,7 @@ The Pi is automatically rebooted when the installation completes.
 Install the buzzer software. Run the following commands as the `pi` user.
 
 ``` bash
-wget https://raw.githubusercontent.com/tdrimmelen/buzzer/master/install/install.sh`
+wget https://raw.githubusercontent.com/tdrimmelen/buzzer/master/install/install.sh
 
 source ./install.sh
 ```
