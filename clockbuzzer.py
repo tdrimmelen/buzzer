@@ -39,6 +39,8 @@ class Clockbuzzer:
 					logging.debug('Receiving json: ' + response.text)
 					if (data['status'] == 'OK'):
 
+						second = 0
+
 						# Shotclock
 						# If a time field is present, use it in the calculation
 						if(data.get('time') != None):

@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM debian:bullseye
 
 COPY . /buzzer
 #COPY ./conf/asound.conf /etc
