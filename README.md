@@ -38,11 +38,25 @@ The configuration default is that the buzzer runs on the same Pi as the shotcloc
 - Buzzing for shotclock / scoreboard running on another Pi
 - Using the shotclock / scorebaord test interface
 
-Below you finf the needed changes. To effectuate the change, you need to restart the buzzer daemon:
+Below you find the needed changes. To effectuate the change, you need to restart the buzzer daemon:
 
 ``` bash
 sudo systemctl restart buzzer
 ```
+
+### Time offset
+
+If the buzzer chimes too early, you can set an offset between the time the device reaches 0 and time the buzzer chimes.
+
+Open `~/buzzer/docker/docker-compose.yaml` with a text editor (nano, vim)
+
+Edit the line. The value is in seconds:
+
+``` yaml
+      - "BUZZER_OFFSET=0.0"
+```
+
+Typically, the value should be set to 1 second when it is off.
 
 ### scoreboards
 

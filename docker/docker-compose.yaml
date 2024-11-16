@@ -3,7 +3,7 @@ services:
     build: 
       dockerfile: ./docker//Dockerfile
       context: ..
-    image: tdrimmelen/buzzer:latest
+    image: tdrimmelen/buzzer:stable
     network_mode: host
     devices:
       - "/dev/snd"
@@ -12,6 +12,7 @@ services:
     environment: 
       - "BUZZER_CLOCKURL=http://localhost/shotclock/time"
       - "BUZZER_AUDIOFILE=buzzer/assets/buzzer.wav"
+      - "BUZZER_OFFSET=0.0"
       - "LOGLEVEL=INFO"
 
 
