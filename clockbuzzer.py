@@ -5,29 +5,54 @@ import requests, requests.exceptions
 import json
 import buzzercontroller
 import os
+from enum import Enum, auto
+from datetime import datetime, timedelta
+
+class State(Enum):
+	RUNNING = auto()
+	WAITING = auto()
+	BUZZED = auto()
+	
 
 class Clockbuzzer:
 
 	def __init__(self):
 
 		self.clockurl = os.environ['BUZZER_CLOCKURL']
+		offset = os.environ.get('BUZZER_OFFSET', 0.0)
 		audiofile = os.environ['BUZZER_AUDIOFILE']
 
 		logging.info('Clock URL = ' + self.clockurl)
+		logging.info('Buzzer offset = ' + offset)
+		logging.info('Audiofile = ' + audiofile)
 
 		self.buzzer = buzzercontroller.buzzercontroller(audiofile)
-		self.hasBuzzed = True
+		self.offset = timedelta(seconds=float(offset))
+		self.buzzertime = 0
+		self.state = State.BUZZED
 	
 	def playWhenNeeded(self, time):
 
-		if (time == 0 and not self.hasBuzzed):
+		if self.state is State.RUNNING:
 
-			self.buzzer.play()
-			self.hasBuzzed = True
+			if time == 0:
+				self.buzzertime = datetime.now() + self.offset
+				self.state = State.WAITING
+
+		elif self.state is State.WAITING:
+
+			now = datetime.now()
+			if (now > self.buzzertime):
+				logging.info('Play buzzer')
+				self.buzzer.play()
+				self.state = State.BUZZED
+
+		else:
+			pass
 			
 		if (time != 0):
 	
-			self.hasBuzzed = False
+			self.state = State.RUNNING
 
 	def run(self):
 

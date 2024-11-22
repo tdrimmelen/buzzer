@@ -12,6 +12,7 @@ services:
     environment: 
       - "BUZZER_CLOCKURL=http://localhost/shotclock/time"
       - "BUZZER_AUDIOFILE=buzzer/assets/buzzer.wav"
+      - "BUZZER_OFFSET=0.0"
       - "LOGLEVEL=INFO"
 
 
