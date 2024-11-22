@@ -23,11 +23,11 @@ class Clockbuzzer:
 		audiofile = os.environ['BUZZER_AUDIOFILE']
 
 		logging.info('Clock URL = ' + self.clockurl)
-		logging.info('Buzzer offset = ' + str(offset))
+		logging.info('Buzzer offset = ' + offset)
 		logging.info('Audiofile = ' + audiofile)
 
 		self.buzzer = buzzercontroller.buzzercontroller(audiofile)
-		self.offset = timedelta(seconds=offset)
+		self.offset = timedelta(seconds=float(offset))
 		self.buzzertime = 0
 		self.state = State.BUZZED
 	
@@ -41,8 +41,9 @@ class Clockbuzzer:
 
 		elif self.state is State.WAITING:
 
-			time = datetime.now()
-			if (time > self.buzzertime):
+			now = datetime.now()
+			if (now > self.buzzertime):
+				logging.info('Play buzzer')
 				self.buzzer.play()
 				self.state = State.BUZZED
 

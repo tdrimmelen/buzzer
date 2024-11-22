@@ -74,6 +74,25 @@ by:
       - "BUZZER_CLOCKURL=http://localhost/scoreboard/time"`
 ```
 
+### Buzzer signal read from device
+
+For some devices, the buzzer signal can be read from the device. Rgis can be achieved as follows:
+
+Open `~/buzzer/docker/docker-compose.yaml` with a text editor (nano, vim)
+
+Replace the line:
+
+``` yaml
+      - "BUZZER_CLOCKURL=http://localhost/shotclock/time"`
+```
+
+by:
+
+``` yaml
+      - "BUZZER_CLOCKURL=http://localhost/scoreboard/buzzer"`
+```
+
+
 ### Run on a different Pi
 
 Open `~/buzzer/docker/docker-compose.yaml` with a text editor (nano, vim)
