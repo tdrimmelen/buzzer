@@ -25,7 +25,7 @@ class buzzercontroller:
         logging.debug(self.__class__.__name__ + ": PLAYING SHOTCLOCK BUZZER")
 
         i = 0
-        while (i < 5):
+        while (i < 10):
             self.play_obj = sa.play_buffer(self.audio_data, 1, 2, 44100)
             self.play_obj.wait_done()
             i = i + 1
